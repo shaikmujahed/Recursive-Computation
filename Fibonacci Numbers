@@ -1,0 +1,25 @@
+'''Recursion '''
+'''Inductive definition'''
+''' many arthemetic functions are naturally define inductively'''
+''' inductively steps define f(n) in terms of smaller arguments'''
+'''f1 = f2'''
+'''fibbonacci :1,1,2,3,4,5,8'''
+from functools import lru_cache
+''' import lru_cache from functool'''
+'''if you not set maxsize it raise RecursionError'''
+@lru_cache(maxsize=1000)
+def fib(n):
+    # checking the input is a positive integer
+    if type(n)!= int:
+        raise TypeError('n must be a positive number')
+    if n <1:
+        raise ValueError('n must be a positive number')
+    '''compute the nth term'''
+    if n == 1:
+        return 1
+    elif n== 2:
+        return 1
+    elif n>2:
+        return fib(n-1) + fib(n-2)
+for n in range(1,500):
+    print(fib(n))
