@@ -1,0 +1,30 @@
+# Recursive insertion sort
+
+'''python has recursion limit upto 998 onl!if increase length more than 998
+it will raise 'RecursionError: maximum recursion depth exceeded in comparison' error
+that's what you have to set recusrsion limit manually.'''
+
+
+import sys
+sys.setrecursionlimit(10000)
+
+l=list(range(1000,0,-1))
+
+def insertion_sort(seq):
+    i_sort(seq,len(seq))
+
+# sort slice sequence[0:k]
+def i_sort(seq,k):
+    if k > 1 :
+      i_sort(seq,k-1)
+      insert(seq,k-1)
+
+# insert seq[k] into sorted seq[0:k]
+def insert(seq,k):
+    pos = k
+    while pos > 0 and seq[pos] < seq[pos-1]:
+        (seq[pos],seq[pos-1])=(seq[pos-1],seq[pos])
+        pos = pos-1
+        
+insertion_sort(l)
+print(l)
