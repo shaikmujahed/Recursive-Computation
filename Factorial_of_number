@@ -1,0 +1,12 @@
+import sys
+sys.setrecursionlimit(10000)
+
+#Find the factorial of a number 
+
+def factorial(n):
+    if n == 0:
+        return (1)
+    else:
+        return (n*factorial(n-1))
+factorial(1000)
+print(factorial(1000))
